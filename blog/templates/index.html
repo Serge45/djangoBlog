@@ -1,7 +1,8 @@
+<h2>Blog post list</h2>
 {% if blog_post_list %}
     <ul>
         {% for post in blog_post_list %}
-            <li><a href="blog/{{post.title}}/">{{ post.title }}</a></li>
+            <li><a href="{% url 'blog:content' post.id %}">{{ post.title }}</a></li>
         {% endfor %}
     </ul>
 {% else %}
