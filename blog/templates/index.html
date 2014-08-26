@@ -2,7 +2,7 @@
 {% if blog_post_list %}
     <ul>
         {% for post in blog_post_list %}
-            <li><a href="{% url 'blog:content' post.id %}">{{ post.title }}</a></li>
+            <li><a href="{% url 'blog:content' post.id %}">{{ post.title }}</a> on {{ post.post_datetime|date}}</li>
         {% endfor %}
     </ul>
 {% else %}
