@@ -1,4 +1,12 @@
-<h1>{{ post.title }}</h1>
-<p>{{ post.content }}</p>
-<p>Post at {{ post.post_datetime }}</p>
-<p>Latest update at {{ post.last_update_datetime }}</p>
+<html>
+    <head>
+        <title>{{ post.title }}</title>
+    </head>
+
+    <body>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        <p>Post at {{ post.post_datetime }}</p>
+        <p>Latest update at {{ post.last_update_datetime }}</p>
+    </body>
+</html>
