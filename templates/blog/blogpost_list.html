@@ -7,7 +7,16 @@
         {% for post in object_list %}
             <div class="post">
                 <h3>{{ post.title }}</h3>
-                <p>{{ post.content }}</p>
+                <p>{{ post.content|custom_markdown }}</p>
             </div>
         {% endfor %}
+
+        {% if page_obj.has_previous %}
+            <a href="/{{ page_obj.previous_page_number }}/">Previous Page</a>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <a href="/{{ page_obj.next_page_number }}/">Next Page</a>
+        {% endif %}
+
 {% endblock %}
