@@ -41,7 +41,25 @@
             </div>
         </div>
 
-        {% block content %} {% endblock %}
+        <div class="container">
+            {% block header %}
+                <div class="page-header">
+                    <h1>Serge45's django blog</h1>
+                </div>
+            {% endblock %}
+
+            <div class="row">
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+
+        <div class="container footer">
+            <div class="row">
+                <div class="span12">
+                    <p>Copyright &copy; {% now "Y" %}</p>
+                </div>
+            </div>
+        </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{% static 'bower_components/html5-boilerplate/js/vendor/jquery-1.10.2.min.js' %}"><\/script>')</script>
