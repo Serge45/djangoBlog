@@ -1,5 +1,7 @@
 {% extends "blog/base.html" %}
 
+    {% load custom_markdown %}
+
     {% block content %}
     <h2>Blog post list</h2>
         {% for post in object_list %}
