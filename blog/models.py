@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.sites.models import Site
 
 class BlogPost(models.Model):
     user = models.ForeignKey(User)
@@ -8,6 +9,7 @@ class BlogPost(models.Model):
     post_datetime = models.DateTimeField(auto_now_add=True)
     last_update_datetime = models.DateTimeField(auto_now=True)
     slug = models.SlugField(max_length=40, unique=True)
+    site = models.ForeignKey(Site)
 
     class Meta:
         ordering = ["-post_datetime"]
