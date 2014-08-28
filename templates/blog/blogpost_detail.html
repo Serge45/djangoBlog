@@ -7,7 +7,12 @@
             <p>{{ object.content|custom_markdown }}</p>
             <p>Post at {{ object.post_datetime }}</p>
             <p>Latest update at {{ object.last_update_datetime }}</p>
+            <span>Category:</span>
             <a href="{{ object.category.get_absolute_url }}">{{ object.category.name }}</a>
+            <span>tags:</span>
+            {% for tag in object.tags.all %}
+            <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+            {% endfor %}
             <h4>Comments</h4>
             <div class="fb-comments" data-href="http://{{ object.site }}{{ object.get_absolute_url }}"
                  data-width="470" data-num-posts="10"></div>

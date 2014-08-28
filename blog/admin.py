@@ -1,5 +1,4 @@
 from django.contrib import admin
-from blog.models import BlogPost
 import models
 
 class BlogPostAdmin(admin.ModelAdmin):
@@ -12,5 +11,6 @@ class BlogPostAdmin(admin.ModelAdmin):
         obj.save()
 
 admin.site.register(models.Category)
-admin.site.register(BlogPost, BlogPostAdmin)
+admin.site.register(models.Tag)
+admin.site.register(models.BlogPost, BlogPostAdmin)
 # Register your models here.
