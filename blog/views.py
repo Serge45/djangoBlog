@@ -8,4 +8,4 @@ def index(request):
 
 def blog_content(request, post_id):
     post = get_object_or_404(BlogPost, pk=post_id)
-    return render(request, 'blog/post_content.html', {'post' : post,})
+    return render(request, 'blog/blogpost_detail.html', {'post' : post,})
