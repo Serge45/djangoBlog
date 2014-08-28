@@ -12,6 +12,7 @@
                 <p>{{ post.content|custom_markdown }}</p>
                 <p>Post at {{ post.post_datetime }}</p>
             </div>
+            <a href="{{ post.category.get_absolute_url }}">{{ post.category.name }}</a>
         {% endfor %}
 
         {% if page_obj.has_previous %}

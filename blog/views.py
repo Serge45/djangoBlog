@@ -1,11 +1,13 @@
-from django.shortcuts import render, get_object_or_404
-from blog.models import BlogPost
+from django.shortcuts import render
+from django.views.generic import ListView
+from blog.models import Category, BlogPost
 
-def index(request):
-    blog_post_list = BlogPost.objects.all()
-    context = {'blog/blogpost_list.html' : blog_post_list}
-    return render(request, 'blog/blogpost_list.html', context)
+class CategoryListView(ListView):
+    def get_queryset(self):
+        slug = self.page_kwarg['slug']
+        try:
+            category = Category.objects.get(slug=slug)
+            return BlogPost.objects.filter(category=category)
+        except Category.DoesNotExist:
+            return BlogPost.objects.none()
 
-def blog_content(request, post_id):
-    post = get_object_or_404(BlogPost, pk=post_id)
-    return render(request, 'blog/blogpost_detail.html', {'post' : post,})
