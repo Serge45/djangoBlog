@@ -1,6 +1,21 @@
 from django.shortcuts import render
 from django.views.generic import ListView
+from django.contrib.syndication.views import Feed
 from blog.models import Category, BlogPost, Tag
+
+class PostsFeed(Feed):
+    title = "RSS feed - posts"
+    link = "feeds/posts/"
+    description = "RSS feed - blog posts"
+
+    def items(self):
+        return BlogPost.objects.order_by('-post_datetime')
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.content
 
 class CategoryListView(ListView):
     def get_queryset(self):
