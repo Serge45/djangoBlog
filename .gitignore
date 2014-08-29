@@ -52,6 +52,6 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-blog/static/bower_components/
+#blog/static/bower_components/
 venv/
 db.sqlite3
