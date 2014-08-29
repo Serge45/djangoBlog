@@ -2,24 +2,37 @@
      {% load custom_markdown %}
 
         {% block content %}
-        <div class="post">
+        <div class="post col-md-12">
             <h2>{{ object.title }}</h2>
             <p>{{ object.content|custom_markdown }}</p>
             <p>Post at {{ object.post_datetime }}</p>
             <p>Latest update at {{ object.last_update_datetime }}</p>
-            <span>Category:</span>
-            <a href="{{ object.category.get_absolute_url }}">{{ object.category.name }}</a>
-            <span>tags:</span>
-            {% for tag in object.tags.all %}
-            <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
-            {% endfor %}
-            <h4>Comments</h4>
-            <div class = "fb-like"
-                 data-send="true"
-                 data-width="450"
-                 data-show-faces="true">
+            {% if object.category %}
+            <div class="col-md-12">
+                <a href="{{ object.category.get_absolute_url }}">
+                    <span class="label label-primary">{{ object.category.name }}</span>
+                </a>
             </div>
-            <div class="fb-comments" data-href="http://{{ object.site }}{{ object.get_absolute_url }}"
-                 data-width="470" data-num-posts="10"></div>
+            {% endif %}
+            {% if object.tags %}
+            <div class="col-md-12">
+                {% for tag in object.tags.all %}
+                <a href="{{ tag.get_absolute_url }}">
+                    <span class="label label-success">{{ tag.name }}</span>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <h4>Comments</h4>
+            <div class="col-md-12">
+                <div class = "fb-like"
+                     data-send="true"
+                     data-width="450"
+                     data-show-faces="true">
+                </div>
+                <div class="fb-comments" data-href="http://{{ object.site }}{{ object.get_absolute_url }}"
+                     data-width="470" data-num-posts="10">
+                </div>
+            </div>
         </div>
         {% endblock %}

@@ -47,7 +47,7 @@ class BlogPost(models.Model):
     slug = models.SlugField(max_length=40, unique=True)
     site = models.ForeignKey(Site)
     category = models.ForeignKey(Category, blank=True, null=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True, null=True)
 
     class Meta:
         ordering = ["-post_datetime"]
