@@ -54,3 +54,4 @@ docs/_build/
 
 blog/static/bower_components/
 venv/
+db.sqlite3
