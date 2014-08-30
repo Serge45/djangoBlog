@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/body_bg.png);
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.post {
+    border: 1px solid grey;
+    border-radius: 4px;
+    background-color: white;
+}

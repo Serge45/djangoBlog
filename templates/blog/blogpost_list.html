@@ -3,12 +3,13 @@
     {% load custom_markdown %}
 
     {% block content %}
-    <h2>Blog post list</h2>
+    <h2>Recent Posts</h2>
         {% if object_list %}
         {% for post in object_list %}
             <div class="post col-md-12">
                 <h3>
                     <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    <hr>
                 </h3>
                 <p>{{ post.content|custom_markdown }}</p>
                 <p>Post at {{ post.post_datetime }}</p>

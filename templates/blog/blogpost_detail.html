@@ -4,6 +4,7 @@
         {% block content %}
         <div class="post col-md-12">
             <h2>{{ object.title }}</h2>
+            <hr>
             <p>{{ object.content|custom_markdown }}</p>
             <p>Post at {{ object.post_datetime }}</p>
             <p>Latest update at {{ object.last_update_datetime }}</p>
