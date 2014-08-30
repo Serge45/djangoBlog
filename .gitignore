@@ -53,5 +53,6 @@ coverage.xml
 docs/_build/
 
 #blog/static/bower_components/
-venv/
+venv
 db.sqlite3
+staticfiles
