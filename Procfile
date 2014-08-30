@@ -1,1 +1,1 @@
-web: python manager.py collectstatic --noinput; gunicorn sergeBlog.wsgi
+web: python manage.py collectstatic --noinput; gunicorn sergeBlog.wsgi
