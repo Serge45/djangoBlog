@@ -14,8 +14,8 @@ urlpatterns = patterns('',
     url(r'', include('django.contrib.flatpages.urls')),
 )
 
-urlpatterns += patterns(r'',
-                        settings.STATIC_URL, {'document_root' : settings.STATIC_ROOT})
 #urlpatterns += patterns(r'',
-#    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+#                        settings.STATIC_URL, {'static' : settings.STATIC_ROOT})
+#urlpatterns += patterns(r'',
+#    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'static': settings.STATIC_ROOT}),
 #)
