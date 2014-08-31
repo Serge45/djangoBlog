@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.contrib.syndication.views import Feed
 from blog.models import Category, BlogPost, Tag
+from django.utils.encoding import force_unicode
+from django.utils.safestring import mark_safe
+import markdown2
 
 class PostsFeed(Feed):
     title = "RSS feed - posts"
@@ -15,7 +18,9 @@ class PostsFeed(Feed):
         return item.title
 
     def item_description(self, item):
-        return item.content
+        extras = ["fenced-code-blocks"]
+        content = mark_safe(markdown2.markdown(force_unicode(item.content), extras))
+        return content
 
 class CategoryListView(ListView):
     def get_queryset(self):
