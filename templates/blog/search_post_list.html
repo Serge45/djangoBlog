@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+    {% load custom_markdown %}
+        {% block content %}
+        {% if object_list %}
+            {% for post in object_list %}
+                <div class = "post col-md-12">
+                    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                    <h4>{{ post.post_datetime }}</h4>
+                    {{ post.content|custom_markdown }}
+                </div>
+                {% if post.category %}
+                    <div class="col-md-12">
+                        <a href="{{ post.category.get_absolute_url }}"><span class="label label-primary">{{ post.category.name }}</span></a>
+                    </div>
+                {% endif %}
+                {% if post.tag %}
+                    <div class="col-md-12">
+                        <a href="{{ post.tag.get_absolute_url }}"><span class="label label-succeed">{{ post.tag.name }}</span></a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No post found</p>
+        {% endif %}
+
+        <ul class="pager">
+        {% if page_obj.has_previous %}
+        <li class="previous"><a href="/search?page={{ page_obj.previous_page_number }}&q={{ search }}">Previous Page</a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li class="next"><a href="/search?page={{ page_obj.next_page_number }}&q={{ search }}">Next Page</a></li>
+        {% endif %}
+        </ul>
+
+        {% endblock %}

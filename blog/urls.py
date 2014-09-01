@@ -22,4 +22,6 @@ urlpatterns = patterns('',
                        )),
                        #Post RSS feed
                        url(r'^feeds/posts/$', PostsFeed()),
+                       #Search result
+                       url(r'^search', 'blog.views.get_search_result'),
 )
