@@ -45,5 +45,10 @@
                 <li class="next"><a href="/{{ page_obj.next_page_number }}/">Next Page</a></li>
             {% endif %}
         </ul>
+    {% endblock %}
 
-{% endblock %}
+    {% block js %}
+        <script>
+            setActive("blog_main");
+        </script>
+    {% endblock %}

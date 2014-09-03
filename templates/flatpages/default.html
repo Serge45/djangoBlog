@@ -8,3 +8,9 @@
             {{ flatpage.content|custom_markdown }}
         </div>
     {% endblock %}
+
+    {% block js %}
+    <script>
+        setActive("flatpage");
+    </script>
+    {% endblock %}

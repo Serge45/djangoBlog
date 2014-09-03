@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
     background-image: url(../img/body_bg.png);
     background-repeat: repeat;
     background-attachment: fixed;
@@ -10,4 +11,24 @@ body {
     border: 1px solid grey;
     border-radius: 4px;
     background-color: white;
+}
+
+.navbar-item:hover {
+    background-color: #000000;
+    text-decoration: none;
+}
+
+.navbar-nav .active:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -5px;
+    vertical-align: middle;
+    color: white;
+    content: " ";
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid;
+    border-left: 5px solid transparent;
 }
