@@ -55,10 +55,12 @@
                     <ul class="nav navbar-nav">
                         {% load flatpages %}
                         {% get_flatpages as flatpages %}
-                        {% for flatpage in flatpages %}
                         <li class="navbar-item" id="archive">
-                            <a href="{% url 'blog:archive'%}">Archive</a>
+                            <a href="{% url 'blog:archive' %}">
+                                Archive
+                            </a>
                         </li>
+                        {% for flatpage in flatpages %}
                         <li class="navbar-item" id="flatpage">
                             <a href="{{ flatpage.url }}">
                                 {{ flatpage.title }}
