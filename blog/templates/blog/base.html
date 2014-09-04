@@ -56,7 +56,14 @@
                         {% load flatpages %}
                         {% get_flatpages as flatpages %}
                         {% for flatpage in flatpages %}
-                        <li class="navbar-item" id="flatpage"><a href="{{ flatpage.url }}">{{ flatpage.title }}</a></li>
+                        <li class="navbar-item" id="archive">
+                            <a href="{% url 'blog:archive'%}">Archive</a>
+                        </li>
+                        <li class="navbar-item" id="flatpage">
+                            <a href="{{ flatpage.url }}">
+                                {{ flatpage.title }}
+                            </a>
+                        </li>
                         {% endfor %}
                         <li class="navbar-item" id="rss_feed"><a href="/feeds/posts/">RSS feed</a></li>
 

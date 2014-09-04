@@ -39,5 +39,9 @@ urlpatterns = patterns('',
                        #Sitemap
                        url(r'^sitemap\.xml', sitemap, {'sitemap': sitemaps} ,
                                                        name='django.contrib.sitemaps.views.sitemap'),
+                       #Archives
+                       url(r'^archive/$', 
+                           ListView.as_view(model=BlogPost, template_name="blog/archive_list.html"), 
+                           name="archive"),
 )
 

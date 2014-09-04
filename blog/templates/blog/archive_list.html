@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+    {% block content %}
+    {% if object_list %}
+    <h2>All posts</h2>
+        <div class="list-group col-md-12">
+        {% for post in object_list %}
+                <a class="list-group-item" href="{{ post.get_absolute_url }}">
+                    {{ post.title }}
+                    <span class="badge">{{post.post_datetime}}</span>
+                </a>
+        {% endfor %}
+        </div>
+    {% else %}
+        <h2>No post</h2>
+    {% endif %}
+    {% endblock %}
+
+    {% block js %}
+    <script>
+        setActive("archive");
+    </script>
+    {% endblock %}
